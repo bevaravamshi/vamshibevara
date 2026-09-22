@@ -95,10 +95,11 @@ function Portfolio() {
 
       <section id="work" className="scroll-mt-16 border-t border-line">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <div className="mb-10 flex items-end justify-between"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">02 projects</span></div>
+          <div className="mb-10 flex items-end justify-between"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">03 projects</span></div>
           <div className="grid gap-5 md:grid-cols-2">
-            <ProjectCard accent="neon" eyebrow="Sustainability" title="Carbon Footprint Calculator" description="A web-based calculator that estimates individual carbon emissions and generates personalized sustainability insights." image={carbonDashboard} alt="Dark carbon footprint analytics dashboard with colorful charts" tags={["HTML", "CSS", "Data visualization"]} />
+            <ProjectCard accent="neon" eyebrow="Sustainability" title="Carbon Footprint Calculator" description="A web-based calculator that estimates individual carbon emissions and generates personalized sustainability insights." image={carbonDashboard} alt="Dark carbon footprint analytics dashboard with colorful charts" tags={["HTML", "CSS", "Data visualization"]} link={LINKS.github} linkLabel="GitHub ↗" />
             <ProjectCard accent="teal" eyebrow="Information retrieval" title="Voice RAG System" description="A voice-enabled information retrieval and question-answering project designed for natural interaction with knowledge." image={voiceRag} alt="Dark voice retrieval interface with a glowing audio waveform" tags={["Voice interface", "Retrieval", "Q&A"]} />
+            <ProjectCard accent="violet" eyebrow="Upcoming" title="MediAlert — Smart Medicine Reminder System" description="A smart medicine reminder system in progress, designed to help users track doses, schedule medications, and never miss a dose with timely alerts." image={mediAlert} alt="Dark medicine reminder app dashboard with a weekly schedule and dose cards" tags={["Reminders", "Scheduling", "Health"]} />
           </div>
         </div>
       </section>
