@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import carbonDashboard from "@/assets/carbon-dashboard.jpg";
 import voiceRag from "@/assets/voice-rag.jpg";
+import mediAlert from "@/assets/medialert.jpg";
 import resumeAsset from "@/assets/vamshi_resume.pdf.asset.json";
+
+const LINKS = {
+  linkedin: "https://www.linkedin.com/in/b-vamshi-vardhan-33288b428",
+  github: "https://github.com/bevaravamshi/eco-home-footprint-friend",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -89,10 +95,11 @@ function Portfolio() {
 
       <section id="work" className="scroll-mt-16 border-t border-line">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <div className="mb-10 flex items-end justify-between"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">02 projects</span></div>
+          <div className="mb-10 flex items-end justify-between"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">03 projects</span></div>
           <div className="grid gap-5 md:grid-cols-2">
-            <ProjectCard accent="neon" eyebrow="Sustainability" title="Carbon Footprint Calculator" description="A web-based calculator that estimates individual carbon emissions and generates personalized sustainability insights." image={carbonDashboard} alt="Dark carbon footprint analytics dashboard with colorful charts" tags={["HTML", "CSS", "Data visualization"]} />
+            <ProjectCard accent="neon" eyebrow="Sustainability" title="Carbon Footprint Calculator" description="A web-based calculator that estimates individual carbon emissions and generates personalized sustainability insights." image={carbonDashboard} alt="Dark carbon footprint analytics dashboard with colorful charts" tags={["HTML", "CSS", "Data visualization"]} link={LINKS.github} linkLabel="GitHub ↗" />
             <ProjectCard accent="teal" eyebrow="Information retrieval" title="Voice RAG System" description="A voice-enabled information retrieval and question-answering project designed for natural interaction with knowledge." image={voiceRag} alt="Dark voice retrieval interface with a glowing audio waveform" tags={["Voice interface", "Retrieval", "Q&A"]} />
+            <ProjectCard accent="violet" eyebrow="Upcoming" title="MediAlert — Smart Medicine Reminder System" description="A smart medicine reminder system in progress, designed to help users track doses, schedule medications, and never miss a dose with timely alerts." image={mediAlert} alt="Dark medicine reminder app dashboard with a weekly schedule and dose cards" tags={["Reminders", "Scheduling", "Health"]} />
           </div>
         </div>
       </section>
@@ -124,6 +131,8 @@ function Portfolio() {
           <div className="grid gap-4 sm:grid-cols-2">
             <ContactCard label="Email" value="vamshivardhan527@gmail.com" href="mailto:vamshivardhan527@gmail.com" tone="text-neon" />
             <ContactCard label="Phone" value="+91 70134 13797" href="tel:+917013413797" tone="text-amber" />
+            <ContactCard label="LinkedIn" value="in/b-vamshi-vardhan" href={LINKS.linkedin} tone="text-teal" />
+            <ContactCard label="GitHub" value="bevaravamshi" href={LINKS.github} tone="text-violet" />
             <ContactCard label="Location" value="Hyderabad, Telangana" tone="text-teal" />
             <ContactCard label="Résumé" value="View PDF ↗" href={resumeAsset.url} tone="text-violet" />
           </div>
@@ -135,10 +144,10 @@ function Portfolio() {
   );
 }
 
-function ProjectCard({ accent, eyebrow, title, description, image, alt, tags }: { accent: "neon" | "teal"; eyebrow: string; title: string; description: string; image: string; alt: string; tags: string[] }) {
-  const tone = accent === "neon" ? "text-neon" : "text-teal";
-  const dot = accent === "neon" ? "bg-neon" : "bg-teal";
-  return <article className="group overflow-hidden rounded-lg border border-line bg-ink-2 transition-colors hover:border-line-strong"><div className="p-5"><div className="mb-3 flex items-center gap-2"><span className={`size-2 rounded-full ${dot}`} /><span className={`font-mono text-[11px] uppercase ${tone}`}>{eyebrow}</span></div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-mute">{description}</p><div className="mt-4 flex flex-wrap gap-1.5">{tags.map((tag) => <span key={tag} className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-paper">{tag}</span>)}</div></div><img src={image} alt={alt} width={1024} height={640} loading="lazy" className="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100 group-hover:scale-[1.015]" /></article>;
+function ProjectCard({ accent, eyebrow, title, description, image, alt, tags, link, linkLabel }: { accent: "neon" | "teal" | "violet"; eyebrow: string; title: string; description: string; image: string; alt: string; tags: string[]; link?: string; linkLabel?: string }) {
+  const tone = accent === "neon" ? "text-neon" : accent === "teal" ? "text-teal" : "text-violet";
+  const dot = accent === "neon" ? "bg-neon" : accent === "teal" ? "bg-teal" : "bg-violet";
+  return <article className="group overflow-hidden rounded-lg border border-line bg-ink-2 transition-colors hover:border-line-strong"><div className="p-5"><div className="mb-3 flex items-center gap-2"><span className={`size-2 rounded-full ${dot}`} /><span className={`font-mono text-[11px] uppercase ${tone}`}>{eyebrow}</span></div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-mute">{description}</p><div className="mt-4 flex flex-wrap gap-1.5">{tags.map((tag) => <span key={tag} className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-paper">{tag}</span>)}{link && <a href={link} target="_blank" rel="noopener noreferrer" className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-teal transition-colors hover:bg-teal hover:text-ink">{linkLabel ?? "Link ↗"}</a>}</div></div><img src={image} alt={alt} width={1024} height={640} loading="lazy" className="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100 group-hover:scale-[1.015]" /></article>;
 }
 
 function Timeline({ title, tone, items }: { title: string; tone: "amber" | "teal"; items: Array<{ date: string; heading: string; subheading: string; body: string }> }) {
