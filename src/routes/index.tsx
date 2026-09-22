@@ -51,9 +51,12 @@ function Portfolio() {
       <section id="top" className="hero-wash relative overflow-hidden">
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
-            <p className="rise rise-1 mb-5 flex items-center gap-2 font-mono text-xs uppercase text-teal">
-              <span className="blink size-1.5 rounded-full bg-teal" /> Data Visualization
-            </p>
+            <div className="rise rise-1 mb-5 flex items-center gap-5">
+              <img src={photoAsset.url} alt="Portrait of Bevara Vamshi Vardhan" width={786} height={1000} loading="eager" className="size-20 shrink-0 rounded-full border border-line object-cover shadow-panel sm:size-24" />
+              <p className="flex items-center gap-2 font-mono text-xs uppercase text-teal">
+                <span className="blink size-1.5 rounded-full bg-teal" /> Data Visualization
+              </p>
+            </div>
             <h1 className="rise rise-2 max-w-[20ch] text-5xl font-semibold leading-tight text-balance text-paper sm:text-7xl">
               Bevara Vamshi Vardhan
             </h1>
