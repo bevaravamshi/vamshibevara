@@ -3,6 +3,7 @@ import carbonDashboard from "@/assets/carbon-dashboard.jpg";
 import voiceRag from "@/assets/voice-rag.jpg";
 import mediAlert from "@/assets/medialert.jpg";
 import resumeAsset from "@/assets/vamshi_resume.pdf.asset.json";
+import photoAsset from "@/assets/vamshi-photo.jpg.asset.json";
 
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/b-vamshi-vardhan-33288b428",
