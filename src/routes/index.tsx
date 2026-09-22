@@ -131,6 +131,8 @@ function Portfolio() {
           <div className="grid gap-4 sm:grid-cols-2">
             <ContactCard label="Email" value="vamshivardhan527@gmail.com" href="mailto:vamshivardhan527@gmail.com" tone="text-neon" />
             <ContactCard label="Phone" value="+91 70134 13797" href="tel:+917013413797" tone="text-amber" />
+            <ContactCard label="LinkedIn" value="in/b-vamshi-vardhan" href={LINKS.linkedin} tone="text-teal" />
+            <ContactCard label="GitHub" value="bevaravamshi" href={LINKS.github} tone="text-violet" />
             <ContactCard label="Location" value="Hyderabad, Telangana" tone="text-teal" />
             <ContactCard label="Résumé" value="View PDF ↗" href={resumeAsset.url} tone="text-violet" />
           </div>
