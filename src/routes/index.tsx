@@ -47,8 +47,8 @@ function Portfolio() {
             <p className="rise rise-1 mb-5 flex items-center gap-2 font-mono text-xs uppercase text-teal">
               <span className="blink size-1.5 rounded-full bg-teal" /> Data Visualization
             </p>
-            <h1 className="rise rise-2 max-w-[20ch] text-5xl font-semibold leading-tight text-balance sm:text-7xl">
-              Bevara Vamshi<br /><span className="text-neon">Vardhan</span>
+            <h1 className="rise rise-2 max-w-[20ch] text-5xl font-semibold leading-tight text-balance text-paper sm:text-7xl">
+              Bevara Vamshi Vardhan
             </h1>
             <p className="rise rise-3 mt-6 max-w-[52ch] text-base leading-relaxed text-mute sm:text-lg">
               Computer Science undergraduate turning information into clear, meaningful insights through data, thoughtful interfaces, and practical software projects.
