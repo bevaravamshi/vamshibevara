@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import carbonDashboard from "@/assets/carbon-dashboard.jpg";
 import voiceRag from "@/assets/voice-rag.jpg";
+import mediAlert from "@/assets/medialert.jpg";
 import resumeAsset from "@/assets/vamshi_resume.pdf.asset.json";
+
+const LINKS = {
+  linkedin: "https://www.linkedin.com/in/b-vamshi-vardhan-33288b428",
+  github: "https://github.com/bevaravamshi/eco-home-footprint-friend",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
