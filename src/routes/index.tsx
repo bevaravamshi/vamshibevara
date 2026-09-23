@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import carbonDashboard from "@/assets/carbon-dashboard.jpg";
 import voiceRag from "@/assets/voice-rag.jpg";
 import mediAlert from "@/assets/medialert.jpg";
@@ -33,7 +35,7 @@ function Portfolio() {
   return (
     <main className="min-h-screen bg-ink font-display text-paper antialiased selection:bg-neon selection:text-ink">
       <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-xl">
-        <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+        <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-8">
           <a href="#top" className="flex items-center gap-2.5 font-mono text-sm" aria-label="Vamshi Vardhan, back to top">
             <span className="brand-dot size-2.5 rounded-full bg-neon" />
             vamshi<span className="text-neon">.</span>viz
@@ -44,15 +46,20 @@ function Portfolio() {
             <a href="#path" className="transition-colors hover:text-paper">Path</a>
             <a href="#contact" className="transition-colors hover:text-paper">Contact</a>
           </div>
-          <a href={resumeAsset.url} target="_blank" rel="noreferrer" className="rounded-md bg-neon px-3.5 py-2 font-mono text-xs font-bold text-ink transition-colors hover:bg-amber">Resume ↗</a>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button asChild variant="outline" size="sm" className="h-9 border-line px-2.5 font-mono text-[11px] text-paper sm:px-3 sm:text-xs">
+              <a href="/chat" aria-label="Ask AI about my portfolio"><MessageCircle className="size-4" /><span className="hidden min-[360px]:inline">Ask me</span><span className="min-[360px]:hidden">Ask</span></a>
+            </Button>
+            <a href={resumeAsset.url} target="_blank" rel="noreferrer" className="rounded-md bg-neon px-3 py-2 font-mono text-[11px] font-bold text-ink transition-colors hover:bg-amber sm:px-3.5 sm:text-xs">Résumé ↗</a>
+          </div>
         </nav>
       </header>
 
       <section id="top" className="hero-wash relative overflow-hidden">
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
-            <img src={photoAsset.url} alt="Portrait of Bevara Vamshi Vardhan" width={686} height={1123} loading="eager" className="rise rise-1 mb-6 size-40 rounded-2xl border border-line object-cover shadow-panel sm:size-56" />
-            <h1 className="rise rise-2 max-w-[20ch] text-5xl font-semibold leading-tight text-balance text-paper sm:text-7xl">
+            <img src={photoAsset.url} alt="Portrait of Bevara Vamshi Vardhan" width={686} height={1123} loading="eager" className="rise rise-1 mb-6 h-64 w-48 rounded-2xl border border-line object-cover shadow-panel sm:h-80 sm:w-64" />
+            <h1 className="rise rise-2 max-w-[20ch] break-words text-4xl font-semibold leading-tight text-balance text-paper sm:text-7xl">
               Bevara Vamshi Vardhan
             </h1>
             <p className="rise rise-3 mt-6 max-w-[52ch] text-base leading-relaxed text-mute sm:text-lg">
@@ -94,7 +101,7 @@ function Portfolio() {
 
       <section id="work" className="scroll-mt-16 border-t border-line">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <div className="mb-10 flex items-end justify-between"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">03 projects</span></div>
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-3"><h2 className="text-3xl font-semibold sm:text-4xl">Selected work</h2><span className="font-mono text-xs text-mute">03 projects</span></div>
           <div className="grid gap-5 md:grid-cols-2">
             <ProjectCard accent="neon" eyebrow="Sustainability" title="Carbon Footprint Calculator" description="A web-based calculator that estimates individual carbon emissions and generates personalized sustainability insights." image={carbonDashboard} alt="Dark carbon footprint analytics dashboard with colorful charts" tags={["HTML", "CSS", "Data visualization"]} link={LINKS.github} linkLabel="GitHub ↗" />
             <ProjectCard accent="teal" eyebrow="Information retrieval" title="Voice RAG System" description="A voice-enabled information retrieval and question-answering project designed for natural interaction with knowledge." image={voiceRag} alt="Dark voice retrieval interface with a glowing audio waveform" tags={["Voice interface", "Retrieval", "Q&A"]} />
@@ -103,11 +110,18 @@ function Portfolio() {
         </div>
       </section>
 
+      <section className="border-t border-line bg-ink-2/40">
+        <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div><p className="font-mono text-[11px] uppercase text-teal">Portfolio Q&amp;A</p><h2 className="mt-2 text-2xl font-semibold">Curious about a project?</h2><p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-mute">Ask about my projects, technical skills, education, or internship experience.</p></div>
+          <Button asChild className="w-fit shrink-0 bg-neon font-mono text-xs font-bold text-ink hover:bg-amber"><a href="/chat"><MessageCircle className="size-4" />Ask a question</a></Button>
+        </div>
+      </section>
+
       <section id="skills" className="scroll-mt-16 border-t border-line bg-ink-2/40">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <h2 className="text-3xl font-semibold sm:text-4xl">Skills</h2>
           <p className="mb-8 mt-3 max-w-[48ch] text-sm text-mute">A growing toolkit for building clear interfaces and understanding data.</p>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {skillGroups.map((group) => <div key={group.label} className="rounded-lg border border-line bg-ink-2 p-5"><p className={`mb-3 font-mono text-[11px] uppercase ${group.tone}`}>{group.label}</p><div className="flex flex-wrap gap-2">{group.skills.map((skill) => <span key={skill} className="rounded-md bg-ink-3 px-2.5 py-1 font-mono text-xs text-paper">{skill}</span>)}</div></div>)}
           </div>
         </div>
@@ -127,7 +141,7 @@ function Portfolio() {
       <section id="contact" className="scroll-mt-16 border-t border-line">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2">
           <div><h2 className="max-w-[16ch] text-4xl font-semibold leading-tight sm:text-5xl">Let’s make data <span className="text-neon">legible</span>.</h2><p className="mt-4 max-w-[44ch] text-mute">I’m seeking an entry-level data visualization opportunity where I can learn, contribute, and build useful data-driven experiences.</p></div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <ContactCard label="Email" value="vamshivardhan527@gmail.com" href="mailto:vamshivardhan527@gmail.com" tone="text-neon" />
             <ContactCard label="Phone" value="+91 70134 13797" href="tel:+917013413797" tone="text-amber" />
             <ContactCard label="LinkedIn" value="in/b-vamshi-vardhan" href={LINKS.linkedin} tone="text-teal" />
@@ -146,7 +160,7 @@ function Portfolio() {
 function ProjectCard({ accent, eyebrow, title, description, image, alt, tags, link, linkLabel }: { accent: "neon" | "teal" | "violet"; eyebrow: string; title: string; description: string; image: string; alt: string; tags: string[]; link?: string; linkLabel?: string }) {
   const tone = accent === "neon" ? "text-neon" : accent === "teal" ? "text-teal" : "text-violet";
   const dot = accent === "neon" ? "bg-neon" : accent === "teal" ? "bg-teal" : "bg-violet";
-  return <article className="group overflow-hidden rounded-lg border border-line bg-ink-2 transition-colors hover:border-line-strong"><div className="p-5"><div className="mb-3 flex items-center gap-2"><span className={`size-2 rounded-full ${dot}`} /><span className={`font-mono text-[11px] uppercase ${tone}`}>{eyebrow}</span></div><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-mute">{description}</p><div className="mt-4 flex flex-wrap gap-1.5">{tags.map((tag) => <span key={tag} className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-paper">{tag}</span>)}{link && <a href={link} target="_blank" rel="noopener noreferrer" className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-teal transition-colors hover:bg-teal hover:text-ink">{linkLabel ?? "Link ↗"}</a>}</div></div><img src={image} alt={alt} width={1024} height={640} loading="lazy" className="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100 group-hover:scale-[1.015]" /></article>;
+  return <article className="group min-w-0 overflow-hidden rounded-lg border border-line bg-ink-2 transition-colors hover:border-line-strong"><div className="p-4 sm:p-5"><div className="mb-3 flex items-center gap-2"><span className={`size-2 rounded-full ${dot}`} /><span className={`font-mono text-[11px] uppercase ${tone}`}>{eyebrow}</span></div><h3 className="break-words text-lg font-semibold sm:text-xl">{title}</h3><p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-mute">{description}</p><div className="mt-4 flex flex-wrap gap-1.5">{tags.map((tag) => <span key={tag} className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-paper">{tag}</span>)}{link && <a href={link} target="_blank" rel="noopener noreferrer" className="rounded-md bg-ink-3 px-2 py-1 font-mono text-[11px] text-teal transition-colors hover:bg-teal hover:text-ink">{linkLabel ?? "Link ↗"}</a>}</div></div><img src={image} alt={alt} width={1024} height={640} loading="lazy" className="aspect-[16/10] w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100 group-hover:scale-[1.015]" /></article>;
 }
 
 function Timeline({ title, tone, items }: { title: string; tone: "amber" | "teal"; items: Array<{ date: string; heading: string; subheading: string; body: string }> }) {
@@ -158,6 +172,6 @@ function Certificate({ title, issuer, url }: { title: string; issuer: string; ur
 
 function ContactCard({ label, value, href, tone }: { label: string; value: string; href?: string; tone: string }) {
   const bg = tone === "text-neon" ? "bg-neon" : tone === "text-amber" ? "bg-amber" : tone === "text-teal" ? "bg-teal" : "bg-violet";
-  const content = <><p className={`inline-block rounded-md px-2 py-0.5 font-mono text-[11px] uppercase font-bold text-ink ${bg}`}>{label}</p><p className={`mt-3 break-words font-mono text-sm ${tone}`}>{value}</p></>;
-  return href ? <a href={href} target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined} rel="noreferrer" className="rounded-lg border border-line bg-ink-2 p-5 transition-colors hover:border-line-strong">{content}</a> : <div className="rounded-lg border border-line bg-ink-2 p-5">{content}</div>;
+  const content = <><p className={`inline-block rounded-md px-2 py-1 font-mono text-[10px] uppercase font-bold text-ink sm:text-[11px] ${bg}`}>{label}</p><p className={`mt-3 break-all font-mono text-xs leading-relaxed sm:break-words sm:text-sm ${tone}`}>{value}</p></>;
+  return href ? <a href={href} target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined} rel="noreferrer" className="min-w-0 rounded-lg border border-line bg-ink-2 p-3 transition-colors hover:border-line-strong sm:p-5">{content}</a> : <div className="min-w-0 rounded-lg border border-line bg-ink-2 p-3 sm:p-5">{content}</div>;
 }
