@@ -1,5 +1,6 @@
 @import "tailwindcss" source(none);
 @source "../src";
+@source "../node_modules/streamdown/dist/*.js";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -186,6 +187,15 @@
 .rise-3 { animation-delay: 0.25s; }
 .blink { animation: blink 1.6s steps(1) infinite; }
 .bar { transform-origin: bottom; animation: bar 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+.chat-markdown > :first-child { margin-top: 0; }
+.chat-markdown > :last-child { margin-bottom: 0; }
+.chat-markdown p, .chat-markdown ul, .chat-markdown ol, .chat-markdown pre, .chat-markdown blockquote { margin-block: 0.75rem; }
+.chat-markdown ul, .chat-markdown ol { padding-left: 1.25rem; }
+.chat-markdown ul { list-style: disc; }
+.chat-markdown ol { list-style: decimal; }
+.chat-markdown a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.chat-markdown code { overflow-wrap: anywhere; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
