@@ -157,6 +157,7 @@ function Timeline({ title, tone, items }: { title: string; tone: "amber" | "teal
 function Certificate({ title, issuer, url }: { title: string; issuer: string; url: string }) { return <a href={url} target="_blank" rel="noopener noreferrer" className="group rounded-lg border border-line bg-ink-2 p-5 transition-colors hover:border-violet"><p className="font-mono text-xs text-mute">2025</p><h3 className="mt-1 text-lg font-semibold underline-offset-4 group-hover:underline">{title} <span className="font-mono text-xs text-mute">↗</span></h3><p className="mt-1 font-mono text-xs text-violet">{issuer}</p></a>; }
 
 function ContactCard({ label, value, href, tone }: { label: string; value: string; href?: string; tone: string }) {
-  const content = <><p className="font-mono text-[11px] uppercase text-mute">{label}</p><p className={`mt-2 break-words font-mono text-sm ${tone}`}>{value}</p></>;
+  const bg = tone === "text-neon" ? "bg-neon" : tone === "text-amber" ? "bg-amber" : tone === "text-teal" ? "bg-teal" : "bg-violet";
+  const content = <><p className={`inline-block rounded-md px-2 py-0.5 font-mono text-[11px] uppercase font-bold text-ink ${bg}`}>{label}</p><p className={`mt-3 break-words font-mono text-sm ${tone}`}>{value}</p></>;
   return href ? <a href={href} target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined} rel="noreferrer" className="rounded-lg border border-line bg-ink-2 p-5 transition-colors hover:border-line-strong">{content}</a> : <div className="rounded-lg border border-line bg-ink-2 p-5">{content}</div>;
 }
